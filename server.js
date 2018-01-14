@@ -4,46 +4,23 @@
 var express = require('express');
 // generate a new express app and call it 'app'
 var app = express();
-
+var mongoose = require('mongoose');
+//add bodyParser S2S3 TC
+var bodyParser = require('body-parser');
 // serve static files from public folder
 app.use(express.static(__dirname + '/public'));
+
+var bodyParser = require('body-parser');
+// use body parser S2S3 TC
+app.use(bodyParser.urlencoded({ extended: true }));
+
 
 /************
  * DATABASE *
  ************/
 
-/* hard-coded data */
-var albums = [];
-albums.push({
-              _id: 132,
-              artistName: 'Nine Inch Nails',
-              name: 'The Downward Spiral',
-              releaseDate: '1994, March 8',
-              genres: [ 'industrial', 'industrial metal' ]
-            });
-albums.push({
-              _id: 133,
-              artistName: 'Metallica',
-              name: 'Metallica',
-              releaseDate: '1991, August 12',
-              genres: [ 'heavy metal' ]
-            });
-albums.push({
-              _id: 134,
-              artistName: 'The Prodigy',
-              name: 'Music for the Jilted Generation',
-              releaseDate: '1994, July 4',
-              genres: [ 'electronica', 'breakbeat hardcore', 'rave', 'jungle' ]
-            });
-albums.push({
-              _id: 135,
-              artistName: 'Johnny Cash',
-              name: 'Unchained',
-              releaseDate: '1996, November 5',
-              genres: [ 'country', 'rock' ]
-            });
-
-
+//require models S1S5 TC
+var db = require('./models');
 
 /**********
  * ROUTES *
@@ -53,6 +30,8 @@ albums.push({
  * HTML Endpoints
  */
 
+// when routed to http://localhost:3000/ homepage function is called TC
+  // respond by sending '/views/index.html' file
 app.get('/', function homepage (req, res) {
   res.sendFile(__dirname + '/views/index.html');
 });
@@ -72,6 +51,16 @@ app.get('/api', function api_index (req, res){
     ]
   });
 });
+
+// when user routes to '/api/albums' albumsIndex function is called S1S2 TC
+  // find and respond with all albums in Album db S1S5 TC
+    // since API route send JSON S1S2 TC
+app.get('/api/albums', function albumsIndex(req, res) {
+  db.Album.find({}, function(err, albums) {
+    res.json(albums);
+  });
+});
+
 
 /**********
  * SERVER *

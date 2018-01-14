@@ -36,13 +36,17 @@ sampleAlbums.push({
 
 
 
-
+//use ajax $.get to get /api/albums S1S2 TC
+// on success render each album for albums S1S1
 $(document).ready(function() {
-  // console.log('app.js loaded!');
-  renderAlbum(sampleAlbums[2]);
+  console.log('app.js loaded!');
+  $.get('/api/albums').success(function (albums) {
+    albums.forEach(function(album) {
+      renderAlbum(album);
+    });
+
+  });
 });
-
-
 
 
 
@@ -73,7 +77,7 @@ function renderAlbum(album) {
   "                      </li>" +
   "                      <li class='list-group-item'>" +
   "                        <h4 class='inline-header'>Released date:</h4>" +
-  "                        <span class='album-releaseDate'>" + album.releaseDate + "</span>" +
+  "                        <span class='album-name'>" + album.releaseDate + "</span>" +
   "                      </li>" +
   "                    </ul>" +
   "                  </div>" +
@@ -89,6 +93,5 @@ function renderAlbum(album) {
   "          </div>" +
   "          <!-- end one album -->";
 
-  // render to the page with jQuery
-  $('.album').html(albumHtml);
-}
+  $('#albums').prepend(albumHtml);
+ }

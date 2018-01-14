@@ -1,22 +1,21 @@
 {
-  "name": "tunely",
+  "name": "tunelyLab",
   "version": "1.0.0",
-  "description": "An app for tracking your music collection",
-  "main": "server.js",
+  "description": "",
+  "main": "seed.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
   },
   "repository": {
     "type": "git",
-    "url": "git+ssh://git@github.com/tgaff/tunely.git"
+    "url": "https://github.com/TessACraig89/tunelyLab"
   },
-  "author": "tgaff",
+  "author": "",
   "license": "ISC",
-  "bugs": {
-    "url": "https://github.com/tgaff/tunely/issues"
-  },
-  "homepage": "https://github.com/tgaff/tunely#readme",
   "dependencies": {
-    "express": "^4.13.3"
+    "express": "^4.16.2",
+    "mongo": "^0.1.0",
+    "mongoose": "^4.13.9"
   }
 }
