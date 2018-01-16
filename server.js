@@ -32,6 +32,12 @@ app.get('/', function homepage (req, res) {
   res.sendFile(__dirname + '/views/index.html');
 });
 
+app.get('/api/albums', function albumsIndex(req, res) {
+  db.Album.find({}, function(err, albums) {
+    res.json(albums);
+  });
+});
+
 
 /*
  * JSON API Endpoints
@@ -210,11 +216,32 @@ app.delete('/api/albums/:albumId/songs/:id', function(req, res) {
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 
+app.get('/api/albums', function albumsIndex(req, res) {
+  db.Album.find({}, function(err, albums) {
+    res.json(albums);
+  });
+});
+
+app.post('/api/albums', function albumCreate(req, res) {
+  console.log('body', req.body);
+
+  // split at comma and remove and trailing space
+  var genres = req.body.genres.split(',').map(function(item) { return item.trim(); } );
+  req.body.genres = genres;
+
+  db.Album.create(req.body, function(err, album) {
+    if (err) { console.log('error', err); }
+    console.log(album);
+    res.json(album);
+  });
+
+});
+
 /**********
  * SERVER *
  **********/
 
-// listen on port 3000
+ // listen on port 3000
 app.listen(process.env.PORT || 3000, function () {
   console.log('Express server is running on http://localhost:3000/');
 });

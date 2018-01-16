@@ -1,17 +1,41 @@
-.jumbotron {
+
+/* .jumbotron {
   background-image: url(/images/background1.jpg);
   background-size: cover;
   background-repeat: no-repeat;
-  color: #EEE;
-}
-.jumbotron .container {
-  height: 350px;
-}
+  color: #EEE; */
+/* } */
+.records {
+  background-image: url('/images/records.png');
+  background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-size: cover;
 
-.inline-header {
-  display: inline-block;
-  vertical-align: baseline;
-  margin-right: 12px;
+}
+h2 {
+  color: #820396;
+  -webkit-text-stroke-width: 1px;
+  -webkit-text-stroke-color: #ffffff;
+}
+.panel-body {
+  background-color: null;
+  margin: 0 auto;
+  border: 0px;
+  border-color: black;
+}
+.list-group-item{
+  background-color: #000000;
+  color: #FFFFFF;
+}
+.list-group {
+  border: 0px;
+}
+.panel-footer {
+  padding: 0;
+}
+.thumbnail album-art {
+  border: 0px;
+  background-color: #820396;
 }
 
 .default-hidden {
