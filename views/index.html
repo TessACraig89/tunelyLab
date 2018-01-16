@@ -25,8 +25,24 @@
       </div>
     </div>
 
+
+
+
+
+    <section class="container">
+      <div class="row">
+        <div class="col-md-10 col-md-offset-1">
+          <h2>Albums</h2>
+        </div>
+      </div>
+      <!-- albums! -->
+      <div id='albums'>
+
+      </div>
+    </section>
+
     <!-- BEGIN FORM SAMPLE -->
-  <!-- add album form container S2S1 TC-->
+    <!-- album form S2S1 TC -->
        <section id='album-form' class="container">
          <div class="row">
          <div class="col-md-10 col-md-offset-1">
@@ -34,7 +50,6 @@
            <form class="form-horizontal">
              <fieldset>
 
-               <!-- creates a form to input Album info, using bootsrap -->
                <!-- Form Name -->
                <legend>Add New Album</legend>
 
@@ -89,18 +104,6 @@
 
         <!--   END FORM SAMPLE -->
 
-    <section class="container">
-      <div class="row">
-        <div class="col-md-10 col-md-offset-1">
-          <h2>Albums</h2>
-        </div>
-      </div>
-      <!-- albums! -->
-      <div id='albums'>
-
-      </div>
-    </section>
-
     <!-- begin songModal: this is not visible until you call .modal() on it -->
     <div class="modal fade" tabindex="-1" role="dialog" id="songModal">
       <div class="modal-dialog">
@@ -132,11 +135,33 @@
 
             </fieldset>
 
-
           </div>
           <div class="modal-footer">
             <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
             <button type="button" class="btn btn-primary" id="saveSong">Save changes</button>
+          </div>
+        </div><!-- /.modal-content -->
+      </div><!-- /.modal-dialog -->
+    </div><!-- /.modal -->
+
+
+
+
+
+    <!-- Edit Songs Modal -->
+    <!-- Add a new modal for editing songs to the page S6S1 TC-->
+    <div class="modal fade bs-modal-lg" id="editSongsModal" tabindex="-1" role="dialog" aria-labelledby="editSongsModalTitle">
+      <div class="modal-dialog  modal-lg" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+            <h4 class="modal-title" id="editSongsModalTitle">Edit Song List</h4>
+          </div>
+          <div class="modal-body" id='editSongsModalBody'>
+            <p> REPLACE #editSongsModalBody </p>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
           </div>
         </div><!-- /.modal-content -->
       </div><!-- /.modal-dialog -->
