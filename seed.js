@@ -9,8 +9,9 @@ var albumList =[];
 albumList.push({
               artistName: 'Nine Inch Nails',
               name: 'The Downward Spiral',
-              releaseDate: '1994, spMarch 8',
-              genres: [ 'industrial', 'industrial metal' ]
+              releaseDate: '1994, March 8',
+              genres: [ 'industrial', 'industrial metal' ],
+              thumbnail: <img src="/images/creamTeam2.4.png">
             });
 albumList.push({
               artistName: 'Metallica',
@@ -71,6 +72,5 @@ db.Album.remove({}, function(err, albums){
     console.log("created", albums.length, "albums");
     process.exit();
   });
-
 });
 //////////////////////////////////////////////////////////////////////////////
